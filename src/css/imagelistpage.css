@@ -1,0 +1,1144 @@
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 12px;
+}
+
+.image-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+.image-card:hover { transform: scale(1.02); }
+
+.preview-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.frame-count-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.video-thumb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-thumb-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 28px;
+  pointer-events: none;
+}
+
+.pdf-preview, .dicom-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-icon, .dicom-icon {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.icon-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #eee;
+  padding: 4px 0;
+  background: rgba(91, 206, 177, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.icon-btn::part(native) {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 6px;
+}
+
+.view-btn ion-icon { color: #5c5555 !important; }
+.delete-btn ion-icon { color: #ef4444 !important; }
+.icon-btn ion-icon { font-size: 18px; }
+
+.icon-btn {
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================================================================
+   Image / Video Viewer Modal — shared chrome
+   ================================================================ */
+
+.header-zoom-badge {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  margin-right: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.viewer-body {
+  --background: #baf0e2;
+}
+
+.dicom-viewer-content {
+  --background: #05070a;
+}
+
+.dicom-image-viewer {
+  position: relative;
+  height: 100%;
+  min-height: 520px;
+  background: #05070a;
+}
+
+.dicom-image-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  background: #000;
+  touch-action: none;
+}
+
+.dicom-viewer-status {
+  min-height: 160px;
+  padding: 32px 24px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #f8fafc;
+  background: #05070a;
+}
+
+.dicom-viewer-error {
+  color: #fecaca;
+}
+
+.dicom-toolbox {
+  position: absolute;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(9, 40px);
+  gap: 2px;
+  padding: 6px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
+}
+
+.dicom-toolbox ion-button {
+  --color: #e2e8f0;
+  --padding-start: 7px;
+  --padding-end: 7px;
+  margin: 0;
+  min-height: 40px;
+}
+
+.dicom-toolbox ion-icon {
+  font-size: 21px;
+}
+
+@media (max-width: 560px) {
+  .dicom-image-viewer,
+  .dicom-image-canvas {
+    min-height: 460px;
+  }
+
+  .dicom-toolbox {
+    grid-template-columns: repeat(5, 40px);
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+.image-viewer-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #baf0e2;
+}
+
+.image-viewer-stage {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.viewer-image {
+  max-width: 92%;
+  max-height: 88%;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+.zoom-hint {
+  position: absolute;
+  bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 14px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.zoom-toolbar {
+  position: absolute;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background: rgba(24, 28, 32, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 20;
+}
+
+.zoom-toolbar-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+
+.zoom-toolbar-btn:active:not(:disabled) {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.zoom-toolbar-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.zoom-toolbar-value {
+  min-width: 42px;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.zoom-toolbar-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.18);
+  margin: 0 2px;
+}
+
+.pdf-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #baf0e2;
+}
+
+.pdf-loading, .video-building {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  text-align: center;
+}
+
+.video-building {
+  color: #fff;
+}
+
+.pdf-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 80%;
+}
+
+.pdf-error-icon {
+  font-size: 40px;
+  opacity: 0.6;
+}
+
+/* ================================================================
+   Professional Video Player (real video files)
+   ================================================================ */
+
+.video-viewer-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #0b0d10;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-viewer-wrapper.is-fullscreen {
+  background: #000;
+}
+
+.video-viewer-stage {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  background: #000;
+}
+
+.viewer-video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transform-origin: center center;
+  background: #000;
+}
+
+.video-buffering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 8;
+}
+
+.video-center-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.video-center-play:active {
+  transform: translate(-50%, -50%) scale(0.94);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.video-controls {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  padding: 8px 14px 10px;
+  background: rgba(20, 24, 28, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 20;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.video-controls.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.video-controls.hidden {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+.video-seek {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  margin: 4px 0 8px;
+  cursor: pointer;
+}
+
+.video-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.video-seek::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.video-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.video-ctrl-btn {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+
+.video-ctrl-btn:active:not(:disabled) {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.video-ctrl-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.video-time {
+  color: #fff;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  margin: 0 4px;
+}
+
+.video-zoom-value {
+  min-width: 38px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.video-volume-group {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.video-volume-slider {
+  width: 60px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  cursor: pointer;
+}
+
+.video-volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.video-spacer {
+  flex: 1;
+}
+
+@media (min-width: 560px) {
+  .video-volume-group {
+    display: flex;
+  }
+}
+
+/* ================================================================
+   Frame Cine Player — professional YouTube-style layout
+   Structure: [ big image stage ] [ frosted control bar ] [ filmstrip ]
+   All three sit in a single column flex wrapper that fills the modal,
+   so there is never a stray gap between sections.
+   ================================================================ */
+
+.frame-cine-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #0b0d10;
+}
+
+.frame-cine-wrapper.is-fullscreen {
+  background: #000;
+}
+
+.frame-cine-stage {
+  flex: 1 1 auto;
+  min-height: 0;        /* required so this flex child actually shrinks and
+                             the stage doesn't push the controls/filmstrip
+                             off screen or leave a black gap above them */
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #000;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.frame-cine-stage .viewer-video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transform-origin: center center;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+/* Double-buffer crossfade layers: both <img> elements are always mounted,
+   stacked exactly on top of one another, and only opacity ever changes —
+   this is what makes frame-to-frame playback smooth instead of popping. */
+.frame-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: opacity 0.08s linear, transform 0.2s ease;
+}
+
+.frame-layer-visible {
+  opacity: 1;
+  z-index: 2;
+}
+
+.frame-layer-hidden {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* ---- Control bar: frosted floating card, consistent with video player ---- */
+
+.frame-controls-bar {
+  flex: 0 0 auto;
+  margin: 10px 12px 8px;
+  padding: 10px 14px 12px;
+  background: rgba(20, 24, 28, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+
+.frame-seek {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  margin: 0 0 10px;
+  cursor: pointer;
+}
+
+.frame-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.frame-seek::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.frame-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.frame-controls-row::-webkit-scrollbar {
+  display: none;
+}
+
+.frame-ctrl-btn {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+
+.frame-ctrl-btn:active:not(:disabled) {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.frame-ctrl-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.frame-time {
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  margin: 0 2px;
+  color: #fff;
+}
+
+.frame-zoom-value {
+  flex: 0 0 auto;
+  min-width: 38px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+
+.frame-spacer {
+  flex: 1 1 auto;
+}
+
+.frame-speed-select {
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 4px 6px;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ---- Filmstrip: horizontal scroll strip with nav arrows ---- */
+
+.frame-filmstrip {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #111418;
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.filmstrip-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 6px;
+  flex: 1 1 auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.filmstrip-track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.filmstrip-track::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 2px;
+}
+
+.filmstrip-thumb {
+  position: relative;
+  flex: 0 0 auto;
+  width: 80px;
+  height: 56px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+
+.filmstrip-thumb:active {
+  transform: scale(0.95);
+}
+
+.filmstrip-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.filmstrip-thumb.active {
+  border-color: #00e6b8;
+}
+
+.filmstrip-thumb-index {
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+  font-size: 9px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 4px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.filmstrip-nav-btn {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.filmstrip-nav-btn:active {
+  transform: scale(0.9);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Slightly larger touch targets / spacing on wider screens */
+@media (min-width: 560px) {
+  .frame-controls-bar {
+    margin: 12px 16px 10px;
+  }
+  .filmstrip-thumb {
+    width: 96px;
+    height: 64px;
+  }
+}
+
+/* Add this block to ../css/imagelistpage.css */
+
+.pagination-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px 24px;
+}
+
+.pagination-summary {
+  font-size: 13px;
+  color: var(--ion-color-medium, #666);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination-btn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-btn.pagination-number.active {
+  background: var(--ion-color-primary, #3880ff);
+  border-color: var(--ion-color-primary, #3880ff);
+  color: #fff;
+  font-weight: 600;
+}
+
+.pagination-ellipsis {
+  padding: 0 4px;
+  color: #999;
+  user-select: none;
+}
+
+/* ---- Type badge (top-left of each card, like IMAGE/VIDEO/DICOM/PDF) ---- */
+.preview-container {
+  position: relative;
+}
+
+.type-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 5;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.badge-image { background: #1e4fa3; }
+.badge-video { background: #7b2fd6; }
+.badge-dicom { background: #0b0b0b; }
+.badge-pdf   { background: #d63b3b; }
+
+/* ---- PDF viewer full-height fix ----
+   Screenshot me pdf-stage fixed chhoti height le raha tha aur baaki modal
+   khaali teal reh jaata tha kyunki .viewer-body / .pdf-stage ko 100% height
+   nahi mil rahi thi. Ionic ke andar IonContent ko explicit height chahiye. */
+.viewer-body {
+  --background: #7fd8c4; /* keep existing teal if intentional, else change */
+  height: 100%;
+}
+
+.pdf-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-stage iframe {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.pdf-loading,
+.pdf-error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #7fd8c4;
+}
+
+.dicom-server-summary {
+  margin: 12px 12px 8px;
+  padding: 12px;
+  border: 1px solid #cde6df;
+  border-radius: 8px;
+  background: #f7fffc;
+  color: #164e45;
+}
+
+.dicom-server-summary-row,
+.dicom-server-summary-details span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dicom-server-summary-row {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dicom-server-summary-row ion-icon {
+  color: #0b8d82;
+  font-size: 18px;
+}
+
+.dicom-server-summary-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #47665f;
+}
+
+.dicom-server-summary-details ion-icon {
+  font-size: 13px;
+  color: #0b8d82;
+}
+
+.dicom-upload-list {
+  margin: 0 12px 12px;
+  border: 1px solid #d8e7e3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.dicom-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 76px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5eeeb;
+  cursor: pointer;
+}
+
+.dicom-upload-row:last-child {
+  border-bottom: 0;
+}
+
+.dicom-upload-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.dicom-upload-icon ion-icon {
+  font-size: 20px;
+}
+
+.dicom-upload-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.dicom-upload-patient,
+.dicom-upload-meta {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dicom-upload-patient {
+  color: #153b34;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.dicom-upload-meta {
+  margin-top: 3px;
+  color: #627d76;
+  font-size: 12px;
+}
+
+.dicom-upload-instance {
+  font-size: 10px;
+}
+
+.dicom-upload-series-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  margin-top: 4px;
+  color: #56726a;
+  font-size: 10px;
+}
+
+.dicom-upload-series-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.dicom-upload-series-meta ion-icon {
+  color: #0b8d82;
+  font-size: 12px;
+}
+
+.dicom-upload-chevron {
+  flex: 0 0 auto;
+  color: #8aa39c;
+  font-size: 19px;
+}
+
+.dicom-upload-delete {
+  --color: #dc2626;
+  --padding-start: 2px;
+  --padding-end: 2px;
+  margin: 0;
+}

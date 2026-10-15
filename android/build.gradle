@@ -1,0 +1,81 @@
+/* // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.7.2'
+        classpath 'com.google.gms:google-services:4.4.2'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+apply from: "variables.gradle"
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://www.dcm4che.org/maven2' }
+        maven { url 'https://raw.githubusercontent.com/nroduit/mvn-repo/master/' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+ */
+
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+         kotlin_version = "2.1.0"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+     dependencies {
+        classpath 'com.android.tools.build:gradle:8.7.2'
+        classpath 'com.google.gms:google-services:4.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply from: "variables.gradle"
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://www.dcm4che.org/maven2' }
+        maven { url 'https://raw.githubusercontent.com/nroduit/mvn-repo/master/' }
+    }
+}
+
+subprojects {
+    configurations.configureEach {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == "org.jetbrains.kotlin") {
+                details.useVersion kotlin_version
+            }
+        }
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk7"
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"
+    }
+    plugins.withType(org.jetbrains.kotlin.gradle.plugin.KotlinBasePluginWrapper) {
+        kotlin {
+            jvmToolchain(21)
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,75 @@
+.studies-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(280px, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.connection-card,
+.upload-card {
+  margin: 0;
+  border: 1px solid #d8e1e8;
+  box-shadow: 0 4px 14px rgba(20, 45, 60, 0.08);
+}
+
+.studies-form-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 8px;
+}
+
+.studies-layout ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 8px;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.selected-file {
+  display: inline-block;
+  margin: 12px 10px 12px 0;
+  max-width: 100%;
+  color: #52636d;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.studies-section-title {
+  color: #263740;
+  font-size: 20px;
+  margin: 12px 0 8px;
+}
+
+@media (max-width: 720px) {
+  .studies-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.protocol-note {
+  margin: 0 0 12px;
+  padding: 10px;
+  border-left: 3px solid #0d9488;
+  background: #eefaf8;
+  color: #31555a;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.upload-status {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.upload-status-success {
+  color: #147a55;
+}
+
+.upload-status-error {
+  color: #b42318;
+}

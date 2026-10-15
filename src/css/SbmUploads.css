@@ -1,0 +1,404 @@
+/* =========================================================
+   SbmUploads.css — SMB Uploads page (professional theme)
+   ========================================================= */
+
+:root {
+  --up-primary: #2563eb;
+  --up-primary-dark: #1d4ed8;
+  --up-primary-light: #eaf1ff;
+  --up-success: #0f9d78;
+  --up-success-light: #e6f7f1;
+  --up-danger: #e5484d;
+  --up-danger-light: #fdecec;
+  --up-text: #1f2937;
+  --up-text-muted: #6b7280;
+  --up-border: #edf0f4;
+  --up-bg: #f4f6f8;
+  --up-radius-lg: 18px;
+  --up-radius-md: 12px;
+  --up-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+.uploads-bg {
+  --background: var(--up-bg);
+}
+
+/* ---------- Header ---------- */
+
+.uploads-toolbar {
+  --background: linear-gradient(135deg, var(--up-primary) 0%, var(--up-primary-dark) 100%);
+  --color: #ffffff;
+  --min-height: 58px;
+  padding-top: env(safe-area-inset-top);
+}
+
+.uploads-toolbar ion-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.uploads-toolbar ion-back-button,
+.uploads-refresh-btn {
+  --color: #ffffff;
+}
+
+.uploads-refresh-btn.spinning ion-icon {
+  animation: up-spin 0.8s linear infinite;
+}
+
+@keyframes up-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Shared card shell ---------- */
+
+.uploads-content {
+  --padding-top: 14px;
+  --padding-bottom: 24px;
+  --padding-start: 14px;
+  --padding-end: 14px;
+}
+
+.up-card {
+  margin: 0 0 14px 0;
+  border-radius: var(--up-radius-lg);
+  box-shadow: var(--up-shadow);
+  border: 1px solid var(--up-border);
+}
+
+.up-card ion-card-content {
+  padding: 16px;
+}
+
+.up-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--up-text-muted);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.up-card-title ion-icon {
+  font-size: 16px;
+  color: var(--up-primary);
+}
+
+/* ---------- Connection info card ---------- */
+
+.conn-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.conn-avatar {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--up-primary-light);
+  color: var(--up-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.conn-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--up-text);
+  margin: 0 0 4px 0;
+}
+
+.conn-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.conn-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--up-text-muted);
+  background: #f3f4f6;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+/* ---------- Folder navigation card ---------- */
+
+.folder-select-wrap {
+  --background: #f8f9fb;
+  --border-radius: var(--up-radius-md);
+  border: 1px solid var(--up-border);
+  border-radius: var(--up-radius-md);
+  margin-bottom: 10px;
+}
+
+.folder-select-wrap ion-select {
+  width: 100%;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--up-text);
+}
+
+.folder-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-path-chip {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--up-primary-light);
+  border-radius: var(--up-radius-md);
+  padding: 9px 12px;
+  min-width: 0;
+}
+
+.upload-path-chip span.label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--up-primary-dark);
+  letter-spacing: 0.3px;
+  margin-right: 8px;
+}
+
+.upload-path-chip span.value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--up-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.create-folder-btn {
+  --border-radius: var(--up-radius-md);
+  --box-shadow: none;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  flex-shrink: 0;
+  height: 40px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: none;
+  --background: #ffffff;
+  --background-hover: var(--up-primary-light);
+  --color: var(--up-primary-dark);
+  border: 1px solid var(--up-primary);
+  border-radius: var(--up-radius-md);
+}
+
+.create-folder-btn ion-icon {
+  font-size: 16px;
+}
+
+/* ---------- Upload card ---------- */
+
+.choose-file-btn {
+  --border-radius: var(--up-radius-md);
+  --border-width: 1.5px;
+  --box-shadow: none;
+  height: 46px;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.picked-file-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--up-success-light);
+  border: 1px solid #c9ecdf;
+  border-radius: var(--up-radius-md);
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.picked-file-chip ion-icon.file-icon {
+  font-size: 20px;
+  color: var(--up-success);
+  flex-shrink: 0;
+}
+
+.picked-file-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--up-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.picked-file-remove {
+  border: none;
+  background: transparent;
+  color: var(--up-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.upload-btn {
+  --border-radius: var(--up-radius-md);
+  --box-shadow: none;
+  height: 46px;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 14px;
+  --background: var(--up-success);
+  --background-hover: #0c8467;
+  margin-bottom: 0;
+}
+
+.upload-progress {
+  margin-top: 10px;
+  border-radius: 4px;
+  height: 6px;
+  --progress-background: var(--up-success);
+}
+
+/* ---------- File list card ---------- */
+
+.file-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.file-list-header .up-card-title {
+  margin-bottom: 0;
+}
+
+.file-count-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--up-primary-dark);
+  background: var(--up-primary-light);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.up-empty-state {
+  text-align: center;
+  padding: 28px 12px;
+  color: var(--up-text-muted);
+}
+
+.up-empty-state ion-icon {
+  font-size: 36px;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+
+.up-empty-state p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.up-file-list {
+  background: transparent;
+}
+
+.up-file-item {
+  --background: transparent;
+  --border-color: var(--up-border);
+  --padding-start: 4px;
+  --inner-padding-end: 4px;
+  --min-height: 52px;
+}
+
+.up-file-item.just-uploaded {
+  --background: var(--up-success-light);
+}
+
+.up-file-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #f1f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.up-file-icon-wrap ion-icon {
+  font-size: 17px;
+  color: var(--up-text-muted);
+}
+
+.up-file-icon-wrap.dir {
+  background: #fff7e6;
+}
+.up-file-icon-wrap.dir ion-icon {
+  color: #b7791f;
+}
+
+.up-file-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--up-text);
+}
+
+.up-file-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* ---------- Web-not-supported banner ---------- */
+
+.web-warning {
+  border-radius: var(--up-radius-lg);
+  --background: var(--up-danger);
+  box-shadow: var(--up-shadow);
+}
+
+.web-warning-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 4px 2px;
+}
+
+.web-warning-content ion-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* ---------- Preview modal ---------- */
+
+.preview-toolbar {
+  --min-height: 52px;
+}
+
+.preview-toolbar ion-title {
+  font-size: 14px;
+  font-weight: 600;
+}

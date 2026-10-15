@@ -1,0 +1,65 @@
+.server-card {
+  margin: 10px 0;
+}
+
+.server-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.server-info {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.server-info strong {
+  font-size: 15px;
+  color: #000;
+}
+
+.server-info p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #444;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+  width: 140px;
+}
+
+.button-group ion-button {
+  flex: 1 1 48%;
+  font-size: 13px;
+  height: 30px;
+  --border-radius: 4px;
+  --color: white;
+}
+
+/* Button Colors */
+.open-btn {
+  --background: #28a745;
+}
+
+.view-btn {
+  --background: #ffc107;
+  --color: #000;
+}
+
+.upload-btn {
+  --background: #6f42c1;
+}
+
+.delete-btn {
+  --background: #dc3545;
+}
+
+.empty-text {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}

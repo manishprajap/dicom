@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>DICOM App</title>
+
+    <!-- ✅ FIXED favicon path (no backslashes) -->
+    <link rel="icon" type="image/png" href="/assets/image/logo1.png" />
+
+    <base href="/" />
+
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+
+    <!-- iOS -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="DICOM App" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- 🔥 VERY IMPORTANT: prevent white flash -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        height: 100%;
+      }
+
+      /* Optional: center splash logo while React loads */
+      #root:empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #root:empty::after {
+        content: "";
+        width: 90px;
+        height: 90px;
+        background: url("/assets/icon.png") no-repeat center;
+        background-size: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

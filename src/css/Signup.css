@@ -1,0 +1,259 @@
+ion-content.signup-bg {
+  --background: transparent !important;
+}
+
+.signup-bg {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("/assets/bg/dicom8.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.signup-box {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  padding: 20px 16px;
+  border-radius: 18px;
+
+  /* 🔥 Glass */
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  /* ✨ Glass border + shadow */
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 35px;
+}
+
+
+.signup-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.signup-subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* ===== FIELD WRAPPER ===== */
+.field {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 12px;
+  color: #2b4a42;
+  margin-bottom: 4px;
+}
+
+/* ===== UNIFIED INPUT / TEXTAREA / SELECT STYLING ===== */
+.field input,
+.field textarea,
+.field select,
+.custom-select-input,
+.custom-select {
+  background: #e9faf4;
+  border: 1px solid #b7ddd1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: #1f3b34;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field textarea {
+  resize: none;
+  min-height: 60px;
+}
+
+/* Native <select> (Role dropdown etc.) — remove default browser arrow, add custom one */
+.field select,
+.custom-select-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 40px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%232b4a42' d='M1 1l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.field select option,
+.custom-select-input option {
+  background-color: #ffffff;
+  color: #1f3b34;
+}
+
+/* Focus state — consistent across inputs + select */
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.custom-select-input:focus {
+  outline: none;
+  border-color: #0baaa5;
+  box-shadow: 0 0 0 2px rgba(11, 170, 165, 0.25);
+}
+
+/* Placeholder color consistency */
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #7a9990;
+}
+
+.error-text {
+  color: #d9534f;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.gender-options {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+}
+
+/* ===== PASSWORD SHOW/HIDE ===== */
+.pw-wrap {
+  position: relative;
+}
+
+.pw-eye {
+  position: absolute;
+  right: 10px;
+  top: 30px;
+  font-size: 18px;
+  color: #0baaa5;
+  cursor: pointer;
+}
+
+.signup-btn {
+  --background: #0baaa5;
+  --color: #fff;
+  --border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+.login-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-text span {
+  color: #0baaa5 !important;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ===== Small Devices Fix ===== */
+@media (max-width: 360px) {
+  .signup-box {
+    padding: 16px;
+  }
+
+  .field input,
+  .field select {
+    font-size: 14px;
+  }
+}
+
+/* ===== 2 COLUMN GRID ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* FULL WIDTH FIELDS */
+.full-width {
+  grid-column: span 2;
+}
+
+/* Active toggle row */
+.active-row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.active-row label {
+  margin-bottom: 0;
+}
+
+/* FORCE 2 COLUMN EVEN ON MOBILE */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Ionic custom-select variant (used elsewhere, e.g. IonSelect popover) */
+.custom-select {
+  --background: #e9faf4 !important;
+  --color: #1f3b34;
+  --border-radius: 10px;
+  --padding-start: 12px;
+  height: 44px;
+}
+
+/* Dropdown list for IonSelect popover */
+ion-select-popover ion-item {
+  --background: #e9faf4;
+  --color: #1f3b34;
+  font-weight: 700;
+}
+
+/* ===== Page background + header (shared across form pages) ===== */
+ion-content.dicom-bg {
+  --background: #eef7f4;
+}
+
+.custom-toolbar {
+  --background: linear-gradient(135deg, #0baaa5, #0d8a86);
+  --color: #ffffff;
+}
+
+/* Required field asterisk */
+.required-star {
+  color: #e53935;
+  margin-left: 2px;
+}
+

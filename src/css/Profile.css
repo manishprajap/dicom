@@ -1,0 +1,538 @@
+/* =========================================================
+   eMedical Access — Professional Profile
+   Rewritten to match the markup actually rendered by
+   Profile.tsx (previous file targeted unused class names).
+   ========================================================= */
+
+.profile-content {
+  --background: #f3f8f8;
+  --color: #0b3a4a;
+}
+
+.profile-content::part(background) {
+  background: linear-gradient(180deg, #eef7f8 0%, #f3f8f8 40%, #f6fafb 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.profile-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  padding: 14px 18px;
+
+  background: rgba(246, 250, 251, 0.92);
+  backdrop-filter: blur(8px);
+
+  border-bottom: 1px solid #e2ecec;
+}
+
+.profile-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.profile-back-btn,
+.profile-icon-btn {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dce7e9;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #0b4c6a;
+
+  font-size: 18px;
+
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.profile-back-btn:active,
+.profile-icon-btn:active {
+  transform: translateY(1px);
+}
+
+.profile-icon-btn {
+  background: linear-gradient(135deg, #1ca79b, #0b4c6a);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 14px rgba(11, 76, 106, 0.22);
+}
+
+.profile-icon-btn:hover,
+.profile-back-btn:hover {
+  box-shadow: 0 4px 12px rgba(11, 76, 106, 0.14);
+}
+
+.profile-header-title {
+  flex: 1;
+  text-align: center;
+}
+
+.profile-header-spacer {
+  width: 38px;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   Body container
+   ========================================================= */
+
+.profile-body {
+  max-width: 640px;
+  margin: 0 auto;
+
+  padding: 20px 18px 110px;
+}
+
+.profile-loading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 0;
+
+  color: #1ca79b;
+}
+
+/* =========================================================
+   Identity summary
+   ========================================================= */
+
+.profile-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 8px 0 26px;
+}
+
+.profile-avatar-wrap .profile-avatar {
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(145deg, #1ca79b 0%, #0b4c6a 100%);
+  color: #ffffff;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  box-shadow: 0 12px 26px rgba(11, 76, 106, 0.22);
+}
+
+.profile-name {
+  margin: 14px 0 6px;
+}
+
+.profile-badge-row {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 10px;
+}
+
+.profile-badge {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 13px;
+
+  border-radius: 20px;
+
+  background: #eaf7f6;
+  color: #178b81 !important;
+}
+
+.profile-badge ion-icon {
+  font-size: 15px;
+}
+
+.profile-hipaa {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.profile-hipaa ion-icon {
+  font-size: 15px;
+  color: #1ca79b;
+}
+
+/* =========================================================
+   Section cards
+   ========================================================= */
+
+.profile-section-card {
+  margin: 0 0 16px;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+  --background: #ffffff;
+
+  box-shadow: 0 6px 22px rgba(11, 76, 106, 0.06);
+
+  border: 1px solid #eaf1f1;
+}
+
+.profile-section-card ion-card-content {
+  padding: 18px 20px;
+}
+
+.profile-section-header {
+  padding-bottom: 12px;
+  margin-bottom: 6px;
+
+  border-bottom: 1px solid #eef4f4;
+}
+
+.profile-section-title {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.profile-section-title ion-icon {
+  font-size: 17px;
+  color: #1ca79b;
+}
+
+/* =========================================================
+   Field rows
+   ========================================================= */
+
+.profile-field {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #f0f5f5;
+}
+
+.profile-field:last-child {
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+.profile-field:first-of-type {
+  padding-top: 4px;
+}
+
+.profile-field-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #f0f8f8;
+  color: #1ca79b;
+
+  margin-top: 1px;
+}
+
+.profile-field-icon ion-icon {
+  font-size: 17px;
+}
+
+.profile-field-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.profile-field-input {
+  --padding-top: 4px;
+  --padding-bottom: 6px;
+
+  border-bottom: 1.4px solid #dceaea;
+}
+
+.profile-field-input.has-focus {
+  border-bottom-color: #1ca79b;
+}
+
+/* =========================================================
+   Read-only email field
+   ========================================================= */
+
+.profile-readonly-wrap {
+  margin-top: 2px;
+}
+
+/* =========================================================
+   Edit action bar
+   ========================================================= */
+
+.profile-edit-actions {
+  position: sticky;
+  bottom: 0;
+
+  display: flex;
+
+  gap: 10px;
+
+  padding: 14px 0 4px;
+
+  margin-top: 4px;
+
+  background: linear-gradient(180deg, rgba(246, 250, 251, 0) 0%, #f6fafb 30%);
+}
+
+.profile-btn {
+  flex: 1;
+
+  min-height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border-radius: 12px;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  transition: box-shadow 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+}
+
+.profile-btn:active {
+  transform: translateY(1px);
+}
+
+.profile-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.profile-btn-primary {
+  color: #ffffff;
+  background: linear-gradient(90deg, #1ca79b 0%, #0b4c6a 100%);
+  box-shadow: 0 8px 18px rgba(11, 76, 106, 0.22);
+}
+
+.profile-btn-ghost {
+  color: #365963;
+  background: #ffffff;
+  border-color: #dce7e9;
+}
+
+.profile-btn-ghost:hover {
+  background: #f5f9f9;
+  border-color: #bfd6d9;
+}
+
+/* =========================================================
+   Security / account action rows
+   ========================================================= */
+
+.profile-action-row {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 13px 2px;
+
+  border: none;
+  border-bottom: 1px solid #f0f5f5;
+  background: transparent;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-family: inherit;
+}
+
+.profile-action-row:last-child {
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+.profile-action-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #f0f8f8;
+  color: #1ca79b;
+
+  font-size: 17px;
+}
+
+.profile-action-icon-danger {
+  background: #fdedec;
+  color: #d64545;
+}
+
+.profile-action-label {
+  flex: 1;
+}
+
+.profile-action-danger .profile-action-label {
+  color: #d64545 !important;
+}
+
+.profile-action-chevron {
+  flex-shrink: 0;
+
+  font-size: 16px;
+  color: #a9bcc0;
+
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   Bottom tab bar
+   ========================================================= */
+
+.profile-footer {
+  border-top: 1px solid #e2ecec;
+}
+
+.profile-tabbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+
+  background: #ffffff;
+}
+
+.profile-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 3px;
+
+  padding: 6px 4px;
+
+  border: none;
+  background: transparent;
+
+  color: #8ba1a7;
+
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+.profile-tab ion-icon {
+  font-size: 21px;
+}
+
+.profile-tab-active {
+  color: #0b4c6a;
+}
+
+.profile-tab-active ion-icon {
+  color: #1ca79b;
+}
+
+.profile-tab-capture {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: -26px;
+
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #1ca79b, #0b4c6a);
+  color: #ffffff;
+
+  font-size: 22px;
+
+  box-shadow: 0 8px 18px rgba(11, 76, 106, 0.3);
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   Accessibility
+   ========================================================= */
+
+.profile-back-btn:focus-visible,
+.profile-icon-btn:focus-visible,
+.profile-btn:focus-visible,
+.profile-action-row:focus-visible,
+.profile-tab:focus-visible,
+.profile-avatar-edit-btn:focus-visible {
+  outline: 2px solid #1ca79b;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-btn,
+  .profile-back-btn,
+  .profile-icon-btn {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   Small screens
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .profile-body {
+    padding: 16px 14px 100px;
+  }
+
+  .profile-section-card ion-card-content {
+    padding: 16px;
+  }
+}

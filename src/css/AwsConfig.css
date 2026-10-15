@@ -1,0 +1,100 @@
+/* Main container */
+.awsconfig-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.awsconfig-box {
+  background: rgba(255, 255, 255, 0.35);   /* Transparent White */
+  backdrop-filter: blur(10px);             /* Blur Effect */
+  -webkit-backdrop-filter: blur(10px);     /* iOS Support */
+
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+/* Title */
+.awsconfig-title {
+  text-align: center;
+  font-size: 20px;
+  color: #222;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+/* Form spacing */
+.aws-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input fields */
+.field {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.field input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease-in-out;
+}
+
+.field input:focus {
+  border-color: #3880ff;
+  box-shadow: 0 0 4px rgba(56, 128, 255, 0.3);
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.save-btn {
+  --background: #3880ff;
+  --border-radius: 8px;
+  flex: 1;
+}
+
+.cancel-btn {
+  --border-radius: 8px;
+  flex: 1;
+}
+
+/* Responsive for small screens */
+@media (max-width: 480px) {
+  .awsconfig-box {
+    padding: 16px;
+  }
+
+  .awsconfig-title {
+    font-size: 18px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}

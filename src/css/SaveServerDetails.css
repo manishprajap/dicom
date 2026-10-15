@@ -1,0 +1,267 @@
+/* Ensure toolbar doesn't overlap mobile status bar */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Optional: fix spacing on Android with translucent header */
+ion-header {
+  --margin-top: 20px;
+  --padding-top: 0px;
+  /* safe-area ke liye padding hata dein */
+  --background: transparent;
+  /* agar background image use kar rahe ho toolbar me */
+}
+
+.signup-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #f0f2f5; */
+  min-height: 90vh;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 3px;
+}
+
+.server-box {
+  position: relative;
+  padding: 14px 12px;
+  width: 100%;
+  max-width: 380px;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.signup-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.signup-subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.field {
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 11px;
+  color: #444;
+  /* margin-bottom: 1px; */
+}
+
+.field input,
+.field textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  /* transparency */
+}
+
+.field textarea {
+  resize: none;
+  height: 50px;
+}
+
+.gender-options {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.pw-wrap {
+  position: relative;
+}
+
+.pw-show {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* --- Buttons --- */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+
+}
+
+.save-btn::part(native) {
+  background-color: #3bd8b1;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+
+.cancel-btn {
+  background: #e53935;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.login-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+
+}
+
+.login-text span {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* --- Toggle --- */
+.toggle {
+  width: 36px;
+  height: 18px;
+  border-radius: 20px;
+  padding: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.toggle.off {
+  background: #cf1919;
+  justify-content: flex-start;
+}
+
+.toggle.on {
+  background: #4caf50;
+  justify-content: flex-end;
+}
+
+.toggle .dot {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+
+/* Common input look */
+.glass-item::part(native) {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+
+  padding: 12px 14px;
+  box-shadow: none;
+}
+
+/* Label styling */
+.glass-item ion-label {
+  font-size: 14px;
+  color: #222;
+}
+
+/* IonSelect text */
+.glass-item ion-select {
+  font-size: 14px;
+  color: #222;
+}
+
+/* Remove default item lines */
+.glass-item {
+  --inner-border-width: 0;
+  --highlight-height: 0;
+  margin-bottom: 12px;
+}
+
+/* Popover container background */
+.custom-select-popover {
+  --background: #abecdc;
+}
+
+/* Option text */
+.custom-select-popover ion-item {
+  --background: #abecdc;
+  --color: #000;
+  font-weight: 500;
+}
+
+/* Selected option highlight */
+.custom-select-popover ion-item.selected {
+  --background: #abecdc;
+}
+
+/* Hover / active (desktop) */
+.custom-select-popover ion-item:hover {
+  --background: #2fcaa3;
+}
+
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* ✅ always 2 columns */
+  gap: 8px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* left – right */
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Glass look only on items */
+.form-row .glass-item::part(native) {
+  background: rgba(240, 252, 251, 0.35);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+  padding: 12px 14px;
+}
+
+
+.utf-8 {
+  font-size: 13px;
+  color: #222;
+
+}

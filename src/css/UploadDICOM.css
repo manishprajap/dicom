@@ -1,0 +1,97 @@
+.upload-content {
+  --background: #f7f8fb;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.upload-card {
+  background: #ffffff;
+  padding: 20px 22px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.upload-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.label-title {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.select-box {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  background: #fff;
+  outline: none;
+}
+
+.file-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.file-selected {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.add-btn {
+  font-size: 0.9rem;
+  padding: 8px;
+}
+
+.save-btn {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.error-text {
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .upload-card {
+    padding: 15px;
+  }
+  .upload-title {
+    font-size: 1.1rem;
+  }
+  .add-btn {
+    font-size: 0.8rem;
+  }
+}
+
+.small-error {
+  font-size: 12px;
+}
+
+.small-btn {
+  font-size: 12px;
+  height: 30px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --border-radius: 6px;
+}

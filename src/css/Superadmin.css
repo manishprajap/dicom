@@ -1,0 +1,193 @@
+/* ══════════════════════════════════════════════════
+   Paste these at the bottom of your Dashboard.css
+   ══════════════════════════════════════════════════ */
+
+/* ── Search bar ── */
+.sa-search-wrap {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 8px 14px;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+.sa-search-icon { color: #fff; font-size: 18px; flex-shrink: 0; }
+.sa-search {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+}
+.sa-search::placeholder { color: rgba(255,255,255,0.6); }
+
+/* ── Summary chips ── */
+.sa-summary-row  { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.sa-summary-chip {
+  font-size: 12px; font-weight: 600;
+  padding: 4px 12px; border-radius: 20px;
+  background: rgba(255,255,255,0.2); color: #777070;
+}
+.sa-summary-chip.active   {  color: #10b981; }
+.sa-summary-chip.inactive {  color: #ef4444; }
+
+/* ── Card ── */
+.sa-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: rgba(255,255,255,0.4);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.sa-card-left      { display: flex; align-items: flex-start; gap: 12px; flex: 1; min-width: 0; }
+.sa-card-icon-wrap {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(255,255,255,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: #000; flex-shrink: 0;
+}
+.sa-card-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.sa-card-title  { font-size: 14px; font-weight: 600; color: #7e7b7b; margin: 0 0 3px; }
+.sa-card-sub    { font-size: 12px; color: rgba(173, 169, 169, 0.7); margin: 0 0 6px; }
+.sa-card-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ── Badges ── */
+.sa-badge {
+  font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 6px;
+  display: inline-block;
+}
+.badge-green   { background: #10b98122; color: #10b981; }
+.badge-red     { background: #ef444422; color: #ef4444; }
+.badge-blue    { background: #3b82f622; color: #3b82f6; }
+
+/* ── Card actions ── */
+.sa-card-actions  { display: flex; gap: 8px; flex-shrink: 0; }
+.sa-action-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  border: none; display: flex; align-items: center;
+  justify-content: center; font-size: 16px; cursor: pointer;
+}
+.sa-action-icon.edit { background: #3b82f622; color: #3b82f6; }
+.sa-action-icon.del  { background: #ef444422; color: #ef4444; }
+
+/* ── Header icon btn ── */
+.sa-icon-btn {
+  background: rgba(255,255,255,0.2); border: none; border-radius: 8px;
+  width: 36px; height: 36px; color: #fff; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 8px; cursor: pointer;
+}
+
+/* ── Empty state ── */
+.sa-empty { text-align: center; color: rgba(255,255,255,0.6); margin-top: 40px; font-size: 14px; }
+
+/* ── Filter chips (role filter) ── */
+.sa-filter-row  { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.sa-filter-chip {
+  font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3); background: transparent;
+  color: rgba(255,255,255,0.7); cursor: pointer;
+}
+.sa-filter-chip.active { background: #00a0a0; color: #fff; border-color: #00a0a0; }
+
+/* ── Tabs ── */
+.sa-tab-row { display: flex; gap: 8px; margin-bottom: 14px; }
+.sa-tab {
+  flex: 1; padding: 8px; border-radius: 10px; border: none;
+  background: #8cdcc8; color: rgba(255,255,255,0.7);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.sa-tab.active { background: #00a0a0; color: #fff; }
+
+/* ── Modal overlay ── */
+.sa-modal-overlay {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,0.55);
+  display: flex; align-items: flex-end;
+  justify-content: center;
+}
+.sa-modal {
+  background: #fff; border-radius: 20px 20px 0 0;
+  padding: 24px 20px 36px; width: 100%; max-width: 540px;
+  max-height: 88vh; overflow-y: auto;
+}
+.sa-modal-title { font-size: 17px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; }
+.sa-label       { font-size: 13px; color: #555; margin: 10px 0 4px; display: block; }
+.sa-input {
+  width: 100%; padding: 10px 14px; border-radius: 8px;
+  border: 1px solid #ddd; font-size: 14px; color: #333;
+  background: #f9f9f9; outline: none; box-sizing: border-box;
+  appearance: none; -webkit-appearance: none;
+}
+.sa-input:focus { border-color: #00a0a0; }
+.sa-modal-btns  { display: flex; gap: 10px; margin-top: 20px; }
+.sa-btn-cancel  {
+  flex: 1; padding: 12px; border-radius: 10px; border: 1px solid #ddd;
+  background: #f3f3f3; color: #555; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.sa-btn-save    {
+  flex: 2; padding: 12px; border-radius: 10px; border: none;
+  background: #00a0a0; color: #fff; font-size: 14px; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Bar chart (reports page) ── */
+.sa-bar-chart {
+  display: flex; align-items: flex-end; gap: 10px;
+  background: rgba(255,255,255,0.4); border-radius: 14px;
+  padding: 16px 14px 8px; height: 120px;
+}
+.sa-bar-col    { display: flex; flex-direction: column; align-items: center; flex: 1; height: 100%; justify-content: flex-end; }
+.sa-bar        { width: 100%; background: #8cdcc8; border-radius: 5px 5px 0 0; min-height: 10%; transition: height .3s; }
+.sa-bar-label  { font-size: 10px; color: rgba(255,255,255,0.7); margin-top: 5px; }
+
+/* ── Plan breakdown ── */
+.sa-plan-row   { display: flex; gap: 10px; }
+.sa-plan-card  {
+  flex: 1; background: rgba(255,255,255,0.4); border-radius: 12px;
+  padding: 12px 10px; text-align: center;
+}
+.sa-plan-name  { font-size: 12px; color: rgba(255,255,255,0.8); margin: 0 0 4px; }
+.sa-plan-count { font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+.sa-plan-bar-bg  { background: rgba(255,255,255,0.15); border-radius: 4px; height: 6px; margin-bottom: 4px; overflow: hidden; }
+.sa-plan-bar-fill{ height: 100%; border-radius: 4px; }
+.sa-plan-pct   { font-size: 11px; color: rgba(255,255,255,0.7); margin: 0; }
+
+/* ── Settings sections ── */
+.sa-settings-section {
+  background: rgba(255,255,255,0.1); border-radius: 14px;
+  padding: 16px; margin-bottom: 16px;
+}
+.sa-settings-header {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 14px;
+}
+.sa-settings-icon { font-size: 20px; color: #8cdcc8; }
+
+/* ── Toggle switch ── */
+.sa-toggle-row   { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sa-toggle-row:last-of-type { border-bottom: none; }
+.sa-toggle-label { font-size: 14px; color: rgba(255,255,255,0.9); }
+.sa-toggle {
+  width: 44px; height: 24px; border-radius: 12px;
+  background: rgba(255,255,255,0.2);
+  position: relative; cursor: pointer;
+  transition: background .2s;
+}
+.sa-toggle.on { background: #00a0a0; }
+.sa-toggle-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; transition: transform .2s;
+}
+.sa-toggle.on .sa-toggle-thumb { transform: translateX(20px); }

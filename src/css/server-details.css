@@ -1,0 +1,136 @@
+/* Background */
+.dicom-bg {
+  --background: url("/assets/bg/dicom.png") center center / cover no-repeat;
+}
+
+/* Card Styling */
+.modern-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px;   /* 👈 mobile me bhi space milega */
+  margin: 0 auto;
+  background: #d8f3e9;
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.server-details-list {
+  max-width: 520px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #cde4dd;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.server-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 47px;
+  padding: 7px 10px;
+  border-bottom: 1px solid #e4efeb;
+}
+
+.server-detail-row:last-child {
+  border-bottom: 0;
+}
+
+.server-detail-icon {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #e3f5ef;
+  color: #0b8d82;
+}
+
+.server-detail-icon ion-icon {
+  font-size: 15px;
+}
+
+.server-detail-copy {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 1px;
+}
+
+.server-detail-row .info-label {
+  margin: 0;
+  color: #627d76;
+  font-size: 10px;
+}
+
+.server-detail-row .info-value {
+  overflow: hidden;
+  color: #153b34;
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Ionic content fix */
+.info-grid-wrapper {
+  width: 100%;
+}
+
+/* ✅ FORCE 2 COLUMN */
+.info-container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important; /* FORCE LEFT-RIGHT */
+  gap: 12px;
+}
+
+/* EACH FIELD */
+.info-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  background: #e9faf4;
+  border: 1px solid #b7ddd1;
+  padding: 6px 8px;
+  border-radius: 6px;
+  min-height: 48px;
+}
+
+/* LABEL */
+.info-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #2b4a42;
+  margin-bottom: 4px;
+}
+
+/* VALUE */
+.info-value {
+  font-size: 13px;
+  color: #222;
+}
+
+/* PASSWORD */
+.password-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-icon {
+  font-size: 16px;
+  color: #1aa79a;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .info-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+

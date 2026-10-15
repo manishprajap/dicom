@@ -1,0 +1,370 @@
+/* =========================================================
+   ServerList.css — SMB Network List (professional theme)
+   ========================================================= */
+
+:root {
+  --sbm-primary: #0f9d78;
+  --sbm-primary-dark: #0b7a5c;
+  --sbm-primary-light: #e6f7f1;
+  --sbm-danger: #e5484d;
+  --sbm-danger-light: #fdecec;
+  --sbm-text: #1f2937;
+  --sbm-text-muted: #6b7280;
+  --sbm-border: #eef1f4;
+  --sbm-bg: #f4f6f8;
+  --sbm-radius-lg: 18px;
+  --sbm-radius-md: 12px;
+  --sbm-radius-sm: 8px;
+  --sbm-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+.server-list-bg {
+  --background: var(--sbm-bg);
+}
+
+/* ---------- Header / Toolbar ---------- */
+
+.custom-toolbar {
+  --background: linear-gradient(135deg, var(--sbm-primary) 0%, var(--sbm-primary-dark) 100%);
+  --color: #ffffff;
+  --min-height: 58px;
+  padding-top: env(safe-area-inset-top);
+}
+
+.custom-toolbar ion-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.custom-toolbar ion-back-button {
+  --color: #ffffff;
+}
+
+.new-sbm {
+  --background: rgba(255, 255, 255, 0.16);
+  --background-hover: rgba(255, 255, 255, 0.24);
+  --background-activated: rgba(255, 255, 255, 0.3);
+  --color: #ffffff;
+  --border-radius: 20px;
+  --box-shadow: none;
+  --padding-start: 14px;
+  --padding-end: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 34px;
+  text-transform: none;
+  margin: 0;
+}
+
+/* ---------- Empty / error states ---------- */
+
+.empty-text {
+  display: block;
+  text-align: center;
+  margin-top: 64px;
+  font-size: 14px;
+}
+
+/* ---------- Card list ---------- */
+
+.server-list {
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid #d9e8e3;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.server-list-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 64px;
+  padding: 9px 10px;
+  border-bottom: 1px solid #e5efec;
+  cursor: pointer;
+}
+
+.server-list-row:last-child {
+  border-bottom: 0;
+}
+
+.server-list-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  background: #dff7ee;
+  color: #0b8d82;
+}
+
+.server-list-icon ion-icon {
+  font-size: 19px;
+}
+
+.server-list-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.server-list-title-row,
+.server-list-address-row {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.server-list-title-row {
+  gap: 7px;
+}
+
+.server-list-name,
+.server-list-address {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.server-list-name {
+  color: #173e36;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.server-list-port {
+  flex: 0 0 auto;
+  color: #087f75;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.server-list-address-row {
+  gap: 3px;
+  margin-top: 3px;
+}
+
+.server-list-address {
+  color: #698078;
+  font-size: 11px;
+}
+
+.server-list-copy-btn {
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #0b8d82;
+}
+
+.server-list-copy-btn ion-icon {
+  font-size: 15px;
+}
+
+.server-list-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.server-list-action {
+  --color: #0b8d82;
+  --padding-start: 3px;
+  --padding-end: 3px;
+  margin: 0;
+  min-height: 34px;
+}
+
+.server-list-action ion-icon {
+  font-size: 18px;
+}
+
+.server-list-delete {
+  --color: #dc2626;
+}
+
+.server-card {
+  margin: 0;
+  border-radius: var(--sbm-radius-lg);
+  box-shadow: var(--sbm-shadow);
+  border: 1px solid var(--sbm-border);
+}
+
+.server-card ion-card-content {
+  padding: 16px 16px 14px 16px;
+}
+
+/* Header row: icon + name + share badge */
+
+.server-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.server-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.server-icon-badge {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sbm-primary-light);
+  color: var(--sbm-primary-dark);
+  font-size: 18px;
+}
+
+.server-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--sbm-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.server-tag {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sbm-primary-dark);
+  background: var(--sbm-primary-light);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.2px;
+}
+
+/* Key / value rows */
+
+.server-kv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--sbm-border);
+  border-bottom: 1px solid var(--sbm-border);
+  margin-bottom: 14px;
+}
+
+.server-kv-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.server-kv-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sbm-text-muted);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.server-kv-value-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.server-kv-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sbm-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 160px;
+  text-align: right;
+}
+
+.server-kv-copy {
+  border: none;
+  background: transparent;
+  color: var(--sbm-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.server-kv-copy:hover,
+.server-kv-copy:active {
+  background: var(--sbm-primary-light);
+  color: var(--sbm-primary-dark);
+}
+
+.server-kv-copy ion-icon {
+  font-size: 16px;
+}
+
+/* Action buttons */
+
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 8px;
+}
+
+.pill-btn {
+  --border-radius: 10px;
+  --box-shadow: none;
+  --padding-start: 6px;
+  --padding-end: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: none;
+  height: 34px;
+  margin: 0;
+}
+
+.pill-btn ion-icon {
+  font-size: 15px;
+}
+
+.pill-open {
+  --background: var(--sbm-primary);
+  --background-hover: var(--sbm-primary-dark);
+  --color: #ffffff;
+}
+
+.pill-upload {
+  --background: #eef2ff;
+  --background-hover: #e0e7ff;
+  --color: #4338ca;
+}
+
+.pill-view {
+  --background: var(--sbm-primary-light);
+  --background-hover: #d3f0e6;
+  --color: var(--sbm-primary-dark);
+}
+
+.pill-delete {
+  --background: var(--sbm-danger-light);
+  --background-hover: #fbdada;
+  --color: var(--sbm-danger);
+}

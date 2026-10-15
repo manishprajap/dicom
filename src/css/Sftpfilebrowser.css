@@ -1,0 +1,46 @@
+.path-breadcrumbs {
+  padding: 12px 16px 4px;
+  --color: #ffffffaa;
+}
+
+.path-breadcrumbs ion-breadcrumb {
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.loading-container,
+.empty-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+}
+
+.empty-text {
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+.file-list {
+  background: transparent;
+  padding: 8px 12px;
+}
+
+.file-item {
+  --background: rgba(255, 255, 255, 0.06);
+  --border-radius: 12px;
+  margin-bottom: 8px;
+  --padding-start: 12px;
+}
+
+.icon-folder {
+  color: #f5b942;
+  font-size: 1.4rem;
+  margin-right: 4px;
+}
+
+.icon-file {
+  color: #8ab4f8;
+  font-size: 1.4rem;
+  margin-right: 4px;
+}

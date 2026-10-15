@@ -1,0 +1,115 @@
+/* Container */
+.sftp-container {
+  padding: 10px;
+}
+
+.dicom-bg {
+  --background: url("/assets/bg/dicom.png") center center / cover no-repeat;
+}
+
+
+
+
+/* Modern Card - White Background */
+.modern-card {
+  background: rgba(255, 255, 255, 0.623);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 14px;
+  padding: 14px 16px;
+}
+
+/* Info Container */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Row Style */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Action row */
+.action-row {
+  margin-top: 4px;
+}
+
+/* Labels */
+.info-label {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Values */
+.info-value {
+  color: #1e293b;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+/* Icons container */
+.card-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* Icons */
+.icon {
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.icon.view {
+  color: #2dd4bf;
+}
+
+.icon.delete {
+  color: #ef4444;
+}
+
+/* Empty state */
+.empty-container {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.empty-text {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .card-icons {
+    margin-top: 6px;
+  }
+}
+
+.new-bucket {
+  background: #00a0a0;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 6px;
+  text-transform: none;
+}

@@ -1,0 +1,46 @@
+.server-list-bg {
+  --background: transparent;
+}
+
+.empty-text {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.95rem;
+}
+
+.server-card {
+  border-radius: 14px;
+  margin: 10px 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.server-info h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.server-info p {
+  margin: 2px 0;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.button-group ion-button {
+  --border-radius: 8px;
+  flex: 1 1 auto;
+  min-width: 70px;
+  font-size: 0.75rem;
+}
+
+.new-sftp {
+  --border-radius: 8px;
+}

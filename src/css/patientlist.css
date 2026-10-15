@@ -1,0 +1,100 @@
+/* Card style same as other pages */
+.sftp-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 12px;
+  background: rgba(255, 255, 255, 0.623);
+}
+
+/* Outer content wrapper (no flex here — just padding) */
+.card-content-wrap {
+  padding: 10px 12px;
+}
+
+/* Row layout — sirf info + icons ke liye */
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Patient Info Section */
+.card-info {
+  flex: 1;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+/* Sub text */
+.sub-info {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Expanded info */
+.extra-info {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #444;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+  line-height: 1.6;
+}
+
+/* Action Icons */
+.card-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 10px;
+}
+.icon {
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.icon:hover {
+  transform: scale(1.15);
+}
+.icon.view {
+  color: #007bff;
+}
+.icon.delete {
+  color: #dc3545;
+}
+
+/* View Reports button — icons ke neeche, apni alag row, full width */
+.view-reports {
+  --background: #007bff;
+  --background-hover: #0069d9;
+  --border-radius: 8px;
+  --box-shadow: none;
+  margin-top: 12px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* Loader */
+.loader-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Empty Text */
+.empty-text {
+  text-align: center;
+  margin-top: 40px;
+  color: #666;
+  font-size: 15px;
+}
+
+.add-patient {
+  background: #00a0a0;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 6px;
+  text-transform: none;   /* 👈 IMPORTANT */
+}
